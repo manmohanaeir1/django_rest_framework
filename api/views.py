@@ -1,25 +1,28 @@
-from django.shortcuts import render
+#from django.shortcuts import render
 from django.http import JsonResponse
+from .serializers import StudentSerializer 
+from students.models import Student
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import api_view
 
 
-# Create your views here.
-
+# Mannual Serialization
+"""
 def studentsView(request):
-    students = [
-        {
-            'id': 1,
-            'name': 'John',
-            'age': 20
-        },
-        {
-            'id': 2,
-            'name': 'Jane',
-            'age': 22
-        },
-        {
-            'id': 3,
-            'name': 'Doe',
-            'age': 21
-        }
-    ]
-    return JsonResponse({'students': students})
+    students = Student.objects.all()
+    students_list = list(students.values())    # convert QuerySet to list of dictionaries called serialization  = > Mannual Serialization
+    return JsonResponse( students_list, safe=False) # safe=False is required to serialize objects other than dict"
+    
+    """
+
+    
+# Automatic Serialization
+@api_view(['GET'])
+def studentsView(request):
+     if request.method == 'GET':
+            # get all students from the database
+         students = Student.objects.all()
+         serializer = StudentSerializer(students, many=True) # many=True is used when we want to serialize multiple objects
+         return Response(serializer.data, status=status.HTTP_200_OK)
+     
