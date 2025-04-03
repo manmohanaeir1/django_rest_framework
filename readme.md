@@ -47,7 +47,8 @@ This project was built using Django and Django REST Framework (DRF) to create a 
 
 ### 10. **Mixins**
 - Mixins are reusable code classes in object oriented programming  tht provide specific functionalities   
-
+![alt text](image.png)
+![alt text](image-1.png)
 ---
 
 ## Key Features
