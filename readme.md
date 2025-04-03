@@ -44,6 +44,10 @@ This project was built using Django and Django REST Framework (DRF) to create a 
 - Tested API endpoints using tools like Postman or curl.
 - Verified CRUD operations and ensured proper responses for different scenarios.
 
+
+### 10. **Mixins**
+- Mixins are reusable code classes in object oriented programming  tht provide specific functionalities   
+
 ---
 
 ## Key Features
