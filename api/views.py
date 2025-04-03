@@ -35,7 +35,7 @@ def studentsView(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
 
 
-@api_view(['GET','PUT'])
+@api_view(['GET','PUT', 'DELETE']) # this decorator is used to specify the allowed methods for the view
 
 def studentDetailView(request,pk):     
 # this view is used to get, update and delete a student by id
@@ -58,4 +58,7 @@ def studentDetailView(request,pk):
                 print(serializer.errors)   
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    elif request.method == 'DELETE':
+        student.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     
