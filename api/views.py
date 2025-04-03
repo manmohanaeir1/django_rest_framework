@@ -35,7 +35,7 @@ def studentsView(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
 
 
-@api_view(['GET'])
+@api_view(['GET','PUT'])
 
 def studentDetailView(request,pk):     
 # this view is used to get, update and delete a student by id
@@ -47,3 +47,15 @@ def studentDetailView(request,pk):
     if request.method == 'GET':
         serializer = StudentSerializer(student)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    elif request.method == 'PUT':
+         serializer = StudentSerializer(student, data=request.data)
+         if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+         else:
+                print(serializer.errors)   
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    
