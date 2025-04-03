@@ -7,7 +7,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from employees.models import Employee
-
+from django.http import Http404
 
 # Mannual Serialization
 """
@@ -89,3 +89,17 @@ class Employees(APIView):
                serializer.save()
                return Response(serializer.data, status=status.HTTP_201_CREATED)
           return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)     
+
+class EmployeeDetail(APIView):
+     def get_object(self, pk):
+          try:
+               employee = Employee.objects.get(pk=pk)
+               return employee
+          except Employee.DoesNotExist:
+               raise Http404    
+          
+     def get(self, request, pk):
+          employee = self.get_object(pk)
+          serializer = EmployeeSerializer(employee)
+          return Response(serializer.data, status=status.HTTP_200_OK)
+           
