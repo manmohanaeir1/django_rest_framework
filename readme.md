@@ -48,13 +48,11 @@ This project was built using Django and Django REST Framework (DRF) to create a 
 ### 10. **Mixins**
 - Mixins are reusable code classes in object oriented programming  tht provide specific functionalities 
 
-- Explanation of Mixins in Django REST Framework (DRF)
 - Mixins in Django REST Framework are reusable classes that provide specific functionality for handling common API operations. They are designed to be used with GenericAPIView or its subclasses to simplify the implementation of class-based views. By combining mixins, you can create views that handle multiple operations (e.g., list, create, retrieve, update, delete) without writing redundant code.
 
 ![alt text](image.png)
 ![alt text](image-1.png)
 
-- Benefits of Using Mixins
 - Code Reusability: Mixins encapsulate common functionality, reducing the need to write repetitive code.
 - Simplicity: By combining mixins, you can quickly implement CRUD operations without manually handling database queries or serialization.
 Consistency: Mixins follow DRF's conventions, ensuring consistent behavior across views.
