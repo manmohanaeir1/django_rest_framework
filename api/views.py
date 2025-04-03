@@ -17,7 +17,13 @@ def studentsView(request):
     """
 
     
-# Automatic Serialization
+# Automatic Serialization  
+#function based view
+# this view is used to get all students and create a new student
+# this view is used to get, update and delete a student by id
+ 
+
+
 @api_view(['GET', 'POST']) # this decorator is used to specify the allowed methods for the view
 def studentsView(request):
      if request.method == 'GET':
