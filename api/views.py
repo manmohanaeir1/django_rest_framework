@@ -166,6 +166,8 @@ class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView): # this view is used
      
 """
 
+
+"""
 #Viewset
 
 class EmployeesViewSet(viewsets.ViewSet):
@@ -203,3 +205,17 @@ class EmployeesViewSet(viewsets.ViewSet):
           employee = get_object_or_404(Employee, pk=pk)
           employee.delete()
           return Response(status=status.HTTP_204_NO_CONTENT)
+
+"""
+
+# model viewset => to reduce the code and make it more readable
+
+
+class EmployeesViewSet(viewsets.ModelViewSet):   
+        queryset = Employee.objects.all()
+        serializer_class = EmployeeSerializer
+
+        # by that code we can get all employees, 
+        # create a new employee, get a employee by id,
+        #  update a employee by id and delete a employee by id` Pk and NonPk 
+ 

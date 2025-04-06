@@ -92,6 +92,30 @@ Consistency: Mixins follow DRF's conventions, ensuring consistent behavior acros
 ![alt text](image-3.png)
 
 
+ 
+### 13. **ModelViewSet in Django REST Framework (DRF)**
+
+- A ModelViewSet is a specialized type of ViewSet in Django REST Framework that provides default implementations for common actions such as list, retrieve, create, update, and destroy. It is designed to work seamlessly with Django models and serializers, making it an efficient and concise way to build RESTful APIs.
+
+- Key Features of ModelViewSet
+- 1. Default CRUD Operations:
+
+- Automatically provides implementations for:
+    - list: Retrieve all objects.
+    - retrieve: Retrieve a single object by its primary key.
+    - create: Create a new object.
+    - update: Update an existing object.
+    - destroy: Delete an object.
+
+- 2. Integration with Routers:
+
+    - Works seamlessly with DRF's routers, which automatically generate URL patterns for the actions provided by the ModelViewSet.
+Customizable:
+
+    - We can override the default methods or add custom actions to tailor the behavior of the ModelViewSet
+
+![alt text](image-4.png)
+
 ---
 
 ## Key Features
