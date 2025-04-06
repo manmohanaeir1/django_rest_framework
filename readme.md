@@ -72,6 +72,26 @@ Consistency: Mixins follow DRF's conventions, ensuring consistent behavior acros
 
 ![alt text](image-2.png)
 
+
+### 12. **ViewSets in Django REST Framework (DRF)**
+- ViewSets in Django REST Framework are a higher-level abstraction that combine the logic for handling multiple HTTP methods (GET, POST, PUT, DELETE, etc.) into a single class. They simplify the implementation of RESTful APIs by grouping related views into one class, reducing boilerplate code and improving maintainability.
+
+- Key Features of ViewSets
+- 1. Unified Logic: Instead of creating separate views for listing, retrieving, creating, updating, and deleting objects, ViewSets combine all these operations into a single class.
+- 2. Router Integration: ViewSets work seamlessly with DRF's routers, which automatically generate URL patterns for the ViewSet's actions.
+- 3. Customizable: You can define custom actions or override default methods to tailor the behavior of the ViewSet.
+- Types of ViewSets
+- 1. ViewSet:
+   - The base class for all ViewSets.
+   -  Requires you to define methods like list, retrieve, create, update, and destroy.
+- 2. ModelViewSet:
+   -  A specialized ViewSet that provides default implementations for common actions (list, retrieve, create, update, destroy).
+- 3. ReadOnlyModelViewSet:
+    - A ViewSet that only provides list and retrieve actions (read-only operations).
+
+![alt text](image-3.png)
+
+
 ---
 
 ## Key Features

@@ -8,7 +8,7 @@ from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from employees.models import Employee
 from django.http import Http404
-from rest_framework import mixins, generics #
+from rest_framework import mixins, generics,viewsets
 
 # Mannual Serialization
 """
@@ -149,6 +149,7 @@ class EmployeeDetail(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.
 
 """            
 
+"""
 #Generic API View
 
 class Employees(generics.ListCreateAPIView): #ListAPIView = accept the incomming reques and also send the response 
@@ -163,3 +164,15 @@ class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView): # this view is used
      serializer_class = EmployeeSerializer
      lookup_field = 'pk' # this is used to specify the field to be used for lookup
      
+"""
+
+#Viewset
+
+class EmployeesViewSet(viewsets.ViewSet):
+     def list(self, request):
+          queryset = Employee.objects.all()
+          serializer = EmployeeSerializer(queryset, many=True)
+          return Response(serializer.data, status=status.HTTP_200_OK)
+     
+
+   
