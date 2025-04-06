@@ -158,6 +158,8 @@ class Employees(generics.ListCreateAPIView): #ListAPIView = accept the incomming
 
 
 
-class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView):
-     pass 
+class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView): # this view is used to get, update and delete a employee by id
+     queryset = Employee.objects.all()
+     serializer_class = EmployeeSerializer
+     lookup_field = 'pk' # this is used to specify the field to be used for lookup
      
