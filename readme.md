@@ -70,6 +70,8 @@ Consistency: Mixins follow DRF's conventions, ensuring consistent behavior acros
 - 2. Customizable: You can override methods or add additional logic to tailor the behavior to your needs.
 - 3. Efficient: They reduce boilerplate code by combining serializers, querysets, and mixins into a single class.
 
+![alt text](image-2.png)
+
 ---
 
 ## Key Features

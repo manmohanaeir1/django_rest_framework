@@ -119,6 +119,8 @@ def studentDetailView(request,pk):
 #           return Response(status=status.HTTP_204_NO_CONTENT)     
 
 
+"""""
+# Misings 
 
 class Employees(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView): # class based view
      queryset = Employee.objects.all()
@@ -131,7 +133,7 @@ class Employees(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Generic
      def post(self, request):
         return self.create(request) # this method is used to create a new employee in the database
  
-
+#mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin
 class EmployeeDetail(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView): # class based view
       queryset = Employee.objects.all()
       serializer_class = EmployeeSerializer
@@ -144,3 +146,18 @@ class EmployeeDetail(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.
       
       def delete(self, request, pk):
            return self.destroy(request, pk)
+
+"""            
+
+#Generic API View
+
+class Employees(generics.ListCreateAPIView): #ListAPIView = accept the incomming reques and also send the response 
+  
+  queryset = Employee.objects.all()
+  serializer_class = EmployeeSerializer
+
+
+
+class EmployeeDetail(generics.RetrieveUpdateDestroyAPIView):
+     pass 
+     
