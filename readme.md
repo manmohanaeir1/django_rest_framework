@@ -62,6 +62,13 @@ Consistency: Mixins follow DRF's conventions, ensuring consistent behavior acros
 
 - The EmployeeDetail class uses RetrieveModelMixin, UpdateModelMixin, and DestroyModelMixin to handle retrieving, updating, and deleting a specific employee.
 
+### 11. **Generic Views in DRF**
+- In Django REST Framework (DRF), generics refer to a set of pre-built, class-based views that provide common functionality for handling API operations. These generic views are built on top of GenericAPIView and DRF mixins, combining them to simplify the implementation of RESTful APIs. They allow developers to quickly create views for common use cases like listing, creating, retrieving, updating, and deleting objects, without writing repetitive code.
+
+- Key Features of Generics
+- 1. Predefined Behavior: Generics come with built-in methods for handling common HTTP methods (GET, POST, PUT, DELETE).
+- 2. Customizable: You can override methods or add additional logic to tailor the behavior to your needs.
+- 3. Efficient: They reduce boilerplate code by combining serializers, querysets, and mixins into a single class.
 
 ---
 
