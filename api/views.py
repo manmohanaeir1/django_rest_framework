@@ -10,6 +10,8 @@ from employees.models import Employee
 from django.http import Http404
 from rest_framework import mixins, generics,viewsets
 
+from employees.filters import EmployeeFilter
+
 # Mannual Serialization
 """
 def studentsView(request):
@@ -214,6 +216,8 @@ class EmployeesViewSet(viewsets.ViewSet):
 class EmployeesViewSet(viewsets.ModelViewSet):   
         queryset = Employee.objects.all()
         serializer_class = EmployeeSerializer
+        #filterset_fields =['emp_designation'] # this is used to filter the employees by department 
+        filterset_class = EmployeeFilter # this is used to filter the employees by department using django_filters 
 
         # by that code we can get all employees, 
         # create a new employee, get a employee by id,
